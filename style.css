@@ -2,6 +2,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: rgb(229, 229, 229)
+}
+
+.choices {
+    display: flex;
+    align-items: center;
 }
 
 .container {
@@ -12,11 +18,11 @@ body {
 
 .title {
     margin-top: 16px;
-    font-size: 32px
+    font-size: 26px
 }
 
 .author {
-    margin-bottom: 32px;
+    margin-bottom: 12px;
 }
 
 .result {
@@ -25,5 +31,51 @@ body {
 }
 
 .button {
-    font-size: 24px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.text {
+    font-size: 22px;
+    margin-top: 12px;
+}
+
+.totalScore {
+    display: flex;
+}
+
+.row {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    gap: 4px;
+}
+
+.text-score {
+    font-size: 18px;
+}
+
+.hidden {
+    display: none;
+}
+
+#playAgain {
+    background-color: yellow;
+    border-width: 2px;
+    border-style:dashed;
+    font-size: 22px;
+    padding: 6px;
+    border-radius:10px;
+    margin-bottom: 20px;
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+#compChoiceImage {
+    border:black;
+    border-width: 2px;
+    border-style:dashed;
 }
