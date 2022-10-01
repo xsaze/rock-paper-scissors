@@ -5,12 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script>
-    playerChoice = String
-    playerScore = 0
+    <div class='container'>
+        <div class="title">ROCK - PAPER - SCISSORS</div>
+        <div class="author">game by Georgi T.</div>
+        <div class="text">Choose your weapon:</div>
+        <div class='choices'>
+            <button class='button' id='1'><img src="/images/rock.jpg" width="100px"></button>
+            <button class='button' id='2'><img src="/images/paper.jpg" width="100px"></button>
+            <button class='button' id='3'><img src="/images/scissors.jpg" width="100px"></button>
+        </div>
+        <div class="text">Computer:</div>
+        <div><img id="compChoiceImage" src='/images/loop.gif' width="100px"></div>
 
+        <div class="result" id="result"></div>
+
+        <div id='playAgain' onclick='resetAll()'>Play Again?</div>
+        
+        <div id="totalScore">
+            <div class="row">
+                <div class="text-score">YOUR SCORE:</div>
+                <div class="text-score" id="playerScore">0</div>
+            </div>
+            <div class="row">
+                <div class="text-score">COMPUTER SCORE:</div>
+                <div class="text-score" id="compScore">0</div>
+            </div>
+        </div>
+    </div>
+    <script>
+    document.getElementById('playAgain').classList.add('hidden');
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => 
+        playRound(button.id-1))
+    })
+    
+    function resetAll () {
+        document.getElementById('compChoiceImage').src='/images/loop.gif';
+        const buttonsReset = document.querySelectorAll('button');
+        buttonsReset.forEach((button) => {
+            button.classList.remove('hidden');
+        })
+        document.getElementById('playAgain').classList.add('hidden)');
+        document.getElementById('result').textContent='';
+    }
+
+    
+    playerChoice = String;
+    playerScore = 0;
+    compWins = 0;
+    playerWins =0;
 
         function game(){
             compWins = 0;
@@ -32,47 +79,63 @@
             return Math.floor(Math.random() * 3);
         }
 
-        function playRound(){
-            playerChoice = prompt("Rock, paper, scissors?")
-            if (playerChoice == "rock") {
-                playerScore = 0;
+        function playRound(id){
+            let resultText = '';
+            playerScore = id;
+            if (playerScore == 0) {
+                playerChoice = "Rock";
+                document.getElementById('2').classList.add('hidden');
+                document.getElementById('3').classList.add('hidden');
             }
-            else if (playerChoice == "paper") {
-                playerScore = 1;
+            else if (playerScore == 1) {
+                playerChoice = "Paper";
+                document.getElementById('1').classList.add('hidden');
+                document.getElementById('3').classList.add('hidden');
             }
-            else {playerScore = 2;
+            else {playerChoice = "Scissors";
+                document.getElementById('2').classList.add('hidden');
+                document.getElementById('1').classList.add('hidden');
             }
             
             compScore = comp_choice();
             if (compScore == 0) {
-                compChoice = "rock"
+                compChoice = "Rock";
+                document.getElementById('compChoiceImage').src='images/rock.jpg';
             } else if (compScore == 1) {
-                compChoice = "paper"
+                compChoice = "Paper";
+                document.getElementById('compChoiceImage').src='images/paper.jpg';
             } else {
-                compChoice = "scissors"
+                compChoice = "Scissors";
+                document.getElementById('compChoiceImage').src='images/scissors.jpg';
             }
 
 
 
             if (playerScore == compScore) {
-                console.log("Draw!")
+                resultText = "Draw!"
             } else if (playerScore > compScore && playerScore-compScore==1) {
-                console.log("You win! "+playerChoice+" beats "+compChoice)
+                resultText = ("You win! "+playerChoice+" beats "+compChoice)
                 playerWins += 1;
             } else if (playerScore > compScore && playerScore-compScore==2) {
-                console.log("You lose! "+compChoice+" beats "+playerChoice)
+                resultText = ("You lose! "+compChoice+" beats "+playerChoice)
                 compWins += 1;
             } else if (compScore - playerScore==1) {
-                console.log("You lose! "+compChoice+" beats "+playerChoice)
+                resultText = ("You lose! "+compChoice+" beats "+playerChoice)
                 compWins += 1;
             } else {
-                console.log("You win! "+playerChoice+" beats "+compChoice)
+                resultText = ("You win! "+playerChoice+" beats "+compChoice)
                 playerWins += 1;
             }
-
-
+            document.getElementById('result').textContent = resultText;
+            document.getElementById('playerScore').textContent = playerWins;
+            document.getElementById('compScore').textContent = compWins;
+            document.getElementById('playAgain').classList.remove('hidden');
+            const buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+        button.removeEventListener('click', () => 
+        playRound(button.id-1))
+    })
         }
-        game();
     </script>
 </body>
 </html>
