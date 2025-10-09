@@ -1,0 +1,77 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(229, 229, 229)
+}
+
+.choices {
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    margin-top: 2px;
+    font-size: 20px
+}
+
+.result {
+    font-size: 16px;
+    margin: 8px;
+}
+
+.button {
+    font-size:20px;
+    font-weight:bold;
+}
+
+.text {
+    font-size: 18px;
+    margin-top: 6px;
+}
+
+.totalScore {
+    display: flex;
+}
+
+.row {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    gap: 4px;
+}
+
+.text-score {
+    font-size: 18px;
+}
+
+.hidden {
+    display: none;
+}
+
+#playAgain {
+    background-color: yellow;
+    border-width: 2px;
+    border-style:dashed;
+    font-size: 22px;
+    padding: 6px;
+    border-radius:10px;
+    margin-bottom: 20px;
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+#compChoiceImage {
+    border:black;
+    border-width: 2px;
+    border-style:dashed;
+}
