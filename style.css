@@ -17,17 +17,13 @@ body {
 }
 
 .title {
-    margin-top: 16px;
-    font-size: 26px
-}
-
-.author {
-    margin-bottom: 12px;
+    margin-top: 2px;
+    font-size: 20px
 }
 
 .result {
-    font-size: 22px;
-    margin: 22px;
+    font-size: 16px;
+    margin: 8px;
 }
 
 .button {
@@ -36,8 +32,8 @@ body {
 }
 
 .text {
-    font-size: 22px;
-    margin-top: 12px;
+    font-size: 18px;
+    margin-top: 6px;
 }
 
 .totalScore {
